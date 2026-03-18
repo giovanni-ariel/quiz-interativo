@@ -1,3 +1,79 @@
 body{
-    background-color:rgb(146, 130, 238) ;
+    font-family: Arial, sans-serif;
+    background-color: linear-gradient(135deg,#3a7bd5,#00d2ff);
+    text-align: center;
+    margin-top: 60px;
+}
+
+h1{
+color:white;
+letter-spacing:2px;
+
+}
+
+#pergunta{
+font-size: 22px;
+margin-bottom: 20px;
+font-weight: bold;
+
+}
+
+
+#respostas button{
+display:block;
+width:250px;
+margin:10px auto;
+padding:12px;
+border:none;
+border-radius:8px;
+background-color:#3498db;
+color:white;
+font-size:16px;
+cursor:pointer;
+
+}
+
+#respostas button:hover{
+background-color:#2980b9;
+transform:scale(1.05);
+
+}
+
+#proximo{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+background-color:#2ecc71;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+
+}
+
+#proximo:hover{
+background-color:#27ae60;
+
+}
+
+#resultado{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+
+}
+
+#pergunta, #respostas{
+max-width:400px;
+margin:auto;
+
+}
+
+.correta{
+    background-color: #2ecc71 !important;
+
+}
+
+.incorreta{
+    background-color: #e74c3c !important;
 }
