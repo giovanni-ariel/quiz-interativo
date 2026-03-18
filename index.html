@@ -1,0 +1,115 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Interativo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="quiz-conatainer">
+<h1>Quiz de Programação</h1>
+
+<div id="pergunta"></div>
+<div id="respostas"></div>
+<button id="proximo" style="display:none;">Próxima</button>
+<div id="resultado"></div>
+
+<script>
+
+const quiz = [
+{
+pergunta: "Qual linguagem roda no navegador?",
+respostas: ["Java", "JavaScript", "Python", "C++"],
+correta: 1
+},
+{
+pergunta: "Qual linguagem é usada para estilizar páginas web?",
+respostas: ["HTML", "CSS", "Java", "Python"],
+correta: 1
+},
+{
+pergunta: "Qual linguagem estrutura páginas web?",
+respostas: ["JavaScript", "HTML", "C#", "Go"],
+correta: 1
+}
+];
+
+let perguntaAtual = 0;
+let pontuacao = 0;
+
+const perguntaEl = document.getElementById("pergunta");
+const respostasEl = document.getElementById("respostas");
+const proximoBtn = document.getElementById("proximo");
+const resultadoEl = document.getElementById("resultado");
+
+function mostrarPergunta() {
+
+respostasEl.innerHTML = "";
+
+let pergunta = quiz[perguntaAtual];
+
+perguntaEl.textContent = pergunta.pergunta;
+
+pergunta.respostas.forEach((resposta, index) => {
+
+let botao = document.createElement("button");
+
+botao.textContent = resposta;
+
+botao.addEventListener("click", () => selecionarResposta(index));
+
+respostasEl.appendChild(botao);
+
+});
+
+}
+
+function selecionarResposta(index) {
+
+let pergunta = quiz[perguntaAtual];
+
+if (index === pergunta.correta) {
+pontuacao++;
+}
+
+proximoBtn.style.display = "inline";
+
+}
+
+proximoBtn.addEventListener("click", () => {
+
+perguntaAtual++;
+
+proximoBtn.style.display = "none";
+
+if (perguntaAtual < quiz.length) {
+
+mostrarPergunta();
+
+} else {
+
+mostrarResultado();
+
+}
+
+});
+
+function mostrarResultado() {
+
+perguntaEl.style.display = "none";
+respostasEl.style.display = "none";
+proximoBtn.style.display = "none";
+
+resultadoEl.textContent = `Você acertou ${pontuacao} de ${quiz.length} perguntas!`;
+
+}
+
+mostrarPergunta();
+
+</script>
+</div>
+</body>
+</html>
